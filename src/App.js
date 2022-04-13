@@ -6,12 +6,22 @@ import logo from "./imagenes/header.png";
 
 //Hooks
 import { useState } from "react";
+import { evaluate } from "mathjs";
 
 function App() {
   const [input, setInput] = useState("");
 
   const agrearInput = (val) => {
     setInput(input + val);
+  };
+
+  const calcularResultado = () => {
+
+    if (input) {
+      setInput(evaluate(input));
+    } else {
+      alert('Ingrese valores')
+    }
   };
 
   return (
@@ -41,13 +51,13 @@ function App() {
           <Boton manejarClic={agrearInput}>*</Boton>
         </div>
         <div className="fila">
-          <Boton manejarClic={agrearInput}>=</Boton>
+          <Boton manejarClic={calcularResultado}>=</Boton>
           <Boton manejarClic={agrearInput}>0</Boton>
           <Boton manejarClic={agrearInput}>.</Boton>
           <Boton manejarClic={agrearInput}>/</Boton>
         </div>
         <div className="fila">
-        <BotonClear manejarClear={() => setInput('')}>Clear</BotonClear>
+          <BotonClear manejarClear={() => setInput("")}>Clear</BotonClear>
         </div>
       </div>
     </div>
