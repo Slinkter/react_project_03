@@ -1,5 +1,5 @@
 import React from "react";
-import "../estilos/Pantalla.css"
+import "../estilos/Pantalla.css";
 
 function Pantalla({ input }) {
   return <div className="input">{input}</div>;
