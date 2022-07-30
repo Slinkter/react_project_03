@@ -1,22 +1,25 @@
-import "./App.css";
-import Boton from "./componentes/Boton";
-import BotonClear from "./componentes/BotonClear";
-import Pantalla from "./componentes/Pantalla";
-import logo from "./imagenes/header.png";
-
 //Hooks
 import { useState } from "react";
+// extenal library
 import { evaluate } from "mathjs";
+// Componets
+import Pantalla from "./componentes/Pantalla";
+import Boton from "./componentes/Boton";
+import BotonClear from "./componentes/BotonClear";
+
+// img
+import logo from "./imagenes/header.png";
+//style
+import "./App.css";
 
 function App() {
   const [input, setInput] = useState("");
-
+// 
   const agrearInput = (val) => {
     setInput(input + val);
   };
 
   const calcularResultado = () => {
-
     if (input) {
       setInput(evaluate(input));
     } else {
